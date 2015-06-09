@@ -1,0 +1,50 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "bank", root_path, class: "navbar-brand" %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+        <% if bank_account_signed_in? %>
+          <li class="<%= current_page(dashboard_index_path) %>">
+            <a href="<%= dashboard_index_path %>"><span class="glyphicon glyphicon-th-large"></span> Painel de controle</a>
+          </li>
+        <% else %>
+          <li class="<%= current_page(new_bank_account_registration_path) %>">
+            <%= link_to "Abrir uma conta", new_bank_account_registration_path  %>
+          </li>
+
+          <li class="<%= current_page(new_bank_account_session_path) %>">
+            <%= link_to "Acessar conta", new_bank_account_session_path  %>
+          </li>
+        <% end %>
+      </ul>
+
+      <% if bank_account_signed_in? %>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="<%= current_page(edit_bank_account_registration_path) %>">
+            <a href="<%= edit_bank_account_registration_path %>"><span class="glyphicon glyphicon-cog"></span> Minha conta</a>
+          </li>
+
+          <li>
+            <%= link_to destroy_bank_account_session_path, method: :delete do %>
+              <span class="glyphicon glyphicon-off"></span> Sair
+            <% end %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+

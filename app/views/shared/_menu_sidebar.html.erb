@@ -1,0 +1,34 @@
+<div class="col-sm-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <li role="presentation" class="<%= current_page(new_deposit_path) %>">
+      <%= link_to "Efetuar depósito", new_deposit_path %>
+    </li>
+
+    <% if bank_account_signed_in? %>
+      <li role="presentation" class="">
+        <%= link_to "Efetuar saque", "#" %>
+      </li>
+
+      <li role="presentation" class="">
+        <%= link_to "Efetuar transferência", "#" %>
+      </li>
+
+      <li role="presentation">
+        <%= link_to "Extrato", "#" %>
+      </li>
+
+      <li role="presentation">
+        <%= link_to "Exibir saldo", "#", data: { toggle: "modal", target: "#balanceModal" } %>
+        
+      </li>
+
+      <li role="presentation">
+        <%= link_to "Encerrar conta", deactivate_bank_account_path(current_bank_account), method: :put, data: { confirm: "Tem certeza que deseja encerrar sua conta?" } %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<% if bank_account_signed_in? %>
+  <%= render "shared/balance_modal" %>
+<% end %>

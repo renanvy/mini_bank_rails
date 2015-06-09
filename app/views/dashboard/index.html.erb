@@ -1,0 +1,9 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><strong>Olá, <%= current_bank_account.name %></strong></div>
+
+  <div class="panel-body">
+    <p><strong>Cliente desde: </strong><%= l(current_bank_account.created_at, format: :short) %></p>
+    <p><strong>Número da conta: </strong><%= current_bank_account.number %></p>
+    <p><strong>Saldo: </strong><%= number_to_currency(current_bank_account.balance) %></p>
+  </div>
+</div>

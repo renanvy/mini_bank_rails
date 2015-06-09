@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   resources :deposits,                 only: [:new, :create]
   resources :transfers,                only: [:new, :create]
   resources :withdrawals,              only: [:new, :create]
-  
   resources :deactivate_bank_accounts, only: [:update]
+  resources :dashboard,                only: [:index]
 
-  root 'pages#home'
+  devise_scope :bank_account do
+    root 'devise/sessions#new'
+  end
 end
