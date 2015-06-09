@@ -1,0 +1,14 @@
+<h2>Criar nova conta</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <p><%= f.error_notification %></p>
+
+  <p><%= f.input :name %></p>
+  <p><%= f.input :number %></p>
+  <p><%= f.input :email %></p>
+  <p><%= f.input :password %></p>
+  <p><%= f.input :password_confirmation %></p>
+
+  <p><%= f.button :submit, "Cadastrar" %></p>
+
+<% end %>

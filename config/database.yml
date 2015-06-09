@@ -1,0 +1,12 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: teste-integra-grp_development
+
+test:
+  <<: *default
+  database: teste-integra-grp_test

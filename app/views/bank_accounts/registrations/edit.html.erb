@@ -1,0 +1,13 @@
+<h2>Editar conta</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <p><%= f.error_notification %></p>
+
+  <p><%= f.input :name %></p>
+  <p><%= f.input :email %></p>
+  <p><%= f.input :password %></p>
+  <p><%= f.input :password_confirmation %></p>
+  <p><%= f.input :current_password %></p>
+
+  <p><%= f.button :submit, "Atualizar" %></p>
+<% end %>

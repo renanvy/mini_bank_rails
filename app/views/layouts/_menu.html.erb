@@ -1,0 +1,20 @@
+<% if bank_account_signed_in? %>
+  <ul>
+    <li><%= link_to "Realizar depósito", "#" %></li>
+    <li><%= link_to "Extrato", "#" %></li>
+    <li><%= link_to "Exibir saldo", "#" %></li>
+    <li><%= link_to "Efetuar saque", "#" %></li>
+    <li><%= link_to "Efetuar transferência", "#" %></li>
+  </ul>
+
+  <ul>
+    <li><%= link_to "Editar conta", edit_bank_account_registration_path %></li>
+    <li><%= link_to "Encerrar conta", edit_bank_account_registration_path %></li>
+    <li><%= link_to "Sair", destroy_bank_account_session_path, method: :delete %></li> 
+  </ul>
+<% else %>
+  <ul>
+    <li><%= link_to "Abrir uma conta", new_bank_account_registration_path  %></li>
+    <li><%= link_to "Acessar conta", new_bank_account_session_path  %></li>
+  </ul>
+<% end %>

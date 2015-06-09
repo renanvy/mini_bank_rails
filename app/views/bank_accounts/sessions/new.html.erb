@@ -1,0 +1,9 @@
+<h2>Acessar conta</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <p><%= f.input :email %></p>
+  <p><%= f.input :password %></p>
+
+  <p><%= f.button :submit, "Acessar" %></p>
+<% end %>
