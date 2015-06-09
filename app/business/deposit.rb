@@ -1,17 +1,40 @@
 class Deposit
   
-  def initialize(deposit_params)
-    @deposit_params  = deposit_params
+  include ActiveModel::Model
+
+  attr_accessor :account_number, :value
+
+  validates :account_number, :value, presence: true
+  validates :account_number,         numericality: { only_integer: true }
+  validates :value,                  numericality: { greater_than: 0.0 }
+  validate  :verify_account_number
+
+  def self.process(deposit_params)
+    new(deposit_params).tap(&:process)
   end
 
   def process
-    account_credited = BankAccount.find_by(number: @deposit_params[:account_number])
+    return unless valid?
 
-    account_credited.balance += @deposit_params[:value].to_d
-
+    account_credited = BankAccount.find_by(number: account_number)
+    account_credited.balance += value.to_d
     account_credited.save!
 
-    # TODO: Salva na tabela de transação o valor depositado na conta
+    # save_transaction
+  end
+
+  private
+
+  def transaction
+    # @transaction ||= Transaction.new(...........)
+  end
+
+  def save_transaction
+    # transaction.save!
+  end
+
+  def verify_account_number
+    errors.add(:account_number, "Conta não encontrada") if BankAccount.find_by(number: account_number).nil?
   end
 
 end

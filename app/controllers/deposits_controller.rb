@@ -1,10 +1,15 @@
 class DepositsController < ApplicationController
+
+  respond_to :html
   
   def new
+    @deposit = Deposit.new
   end
 
   def create
-    Deposit.new(deposit_params).process
+    @deposit = Deposit.process(deposit_params)
+
+    respond_with(@deposit, location: dashboard_index_url)
   end
 
   private
