@@ -13,8 +13,7 @@ class Withdrawal
   def process
     return unless valid?
 
-    current_bank_account.balance -= value.to_d
-    current_bank_account.save!
+    current_bank_account.update(balance: current_bank_account.balance - value.to_d)
 
     # save_transaction
   end
