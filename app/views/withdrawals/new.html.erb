@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><strong>Efetuar saque</strong></div>
+
+  <div class="panel-body">
+    <%= simple_form_for @withdrawal do |f| %>
+      <%= f.input :current_bank_account_id, as: :hidden, input_html: { value: current_bank_account.id } %>
+
+      <%= f.input :value %>
+
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

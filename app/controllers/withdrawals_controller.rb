@@ -1,16 +1,21 @@
 class WithdrawalsController < ApplicationController
   before_action :authenticate_bank_account!
 
+  respond_to :html
+
   def new
+    @withdrawal = Withdrawal.new
   end
 
   def create
-    Withdrawal.new(current_bank_account, withdrawal_params).process
+    @withdrawal = Withdrawal.process(withdrawal_params)
+
+    respond_with(@withdrawal, location: -> { dashboard_index_url })
   end
 
   private
 
   def withdrawal_params
-    params.require(:withdrawal_params).permit(:value)
+    params.require(:withdrawal).permit(:value, :current_bank_account_id)
   end
 end

@@ -5,8 +5,8 @@
     </li>
 
     <% if bank_account_signed_in? %>
-      <li role="presentation" class="">
-        <%= link_to "Efetuar saque", "#" %>
+      <li role="presentation" class="<%= current_page(new_withdrawal_path) %>">
+        <%= link_to "Efetuar saque", new_withdrawal_path %>
       </li>
 
       <li role="presentation" class="">
