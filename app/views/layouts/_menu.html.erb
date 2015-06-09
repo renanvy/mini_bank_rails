@@ -12,7 +12,7 @@
 
   <ul>
     <li><%= link_to "Editar conta", edit_bank_account_registration_path %></li>
-    <li><%= link_to "Encerrar conta", edit_bank_account_registration_path %></li>
+    <li><%= link_to "Encerrar conta", deactivate_bank_account_path(current_bank_account), method: :put %></li>
     <li><%= link_to "Sair", destroy_bank_account_session_path, method: :delete %></li> 
   </ul>
 <% else %>
