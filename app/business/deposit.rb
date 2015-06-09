@@ -17,8 +17,7 @@ class Deposit
     return unless valid?
 
     account_credited = BankAccount.find_by(number: account_number)
-    account_credited.balance + value.to_d
-    account_credited.save!
+    account_credited.update(balance: account_credited.balance + value.to_d)
 
     # save_transaction
   end
