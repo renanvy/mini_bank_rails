@@ -18,6 +18,18 @@ end
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+
+  config.include Warden::Test::Helpers
+  config.include FactoryGirl::Syntax::Methods
+  
+  config.before :suite do
+    Warden.test_mode!
+  end
+
+  config.before(:all) do
+    FactoryGirl.reload
+  end
+
   config.use_transactional_fixtures = false
 
   config.infer_spec_type_from_file_location!
