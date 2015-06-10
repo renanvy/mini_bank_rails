@@ -8,6 +8,8 @@ class BankAccount < ActiveRecord::Base
 
   before_create :generate_account_number
 
+  has_many :movimentations
+
   private
 
   def generate_account_number

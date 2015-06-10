@@ -13,8 +13,8 @@
         <%= link_to "Efetuar transferência", new_transfer_path %>
       </li>
 
-      <li role="presentation">
-        <%= link_to "Extrato", "#" %>
+      <li role="presentation" class="<%= current_page(movimentations_path) %>">
+        <%= link_to "Extrato", movimentations_path %>
       </li>
 
       <li role="presentation" class="<%= current_page(balances_path) %>">

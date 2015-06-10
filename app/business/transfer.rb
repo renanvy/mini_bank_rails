@@ -20,7 +20,7 @@ class Transfer
     account_credited.update(balance: account_credited.balance + value.to_d)
     account_debited.update(balance: account_debited.balance - value.to_d)
 
-    # save_transaction
+    save_movimentation
   end
 
   private
@@ -33,12 +33,17 @@ class Transfer
     BankAccount.find(account_debited_id)
   end
 
-  def transaction
-    # @transaction ||= Transaction.new(...........)
+  def movimentation
+    @movimentation ||= Movimentation.new(
+                                          operation: "Transferência", 
+                                          bank_account_id: account_debited.id, 
+                                          account_destiny_id: account_credited.id,
+                                          value: value
+                                        )
   end
 
-  def save_transaction
-    # transaction.save!
+  def save_movimentation
+    movimentation.save!
   end
 
   def verify_account_number

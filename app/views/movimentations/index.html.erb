@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><strong>Extrato</strong></div>
+
+  <div class="panel-body">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Operação</th>
+          <th>Data</th>
+          <th>Conta creditada</th>
+          <th>Conta debitada</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @movimentations.each do |movimentation| %>
+          <tr>
+            <td><%= movimentation.operation %></td>
+            <td><%= l(movimentation.created_at, format: :short) %></td>
+            <td><%= BankAccount.find(movimentation.account_destiny_id).number %></td>
+            <td><%= movimentation.bank_account.number %></td>
+            <td><%= number_to_currency(movimentation.value) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>
