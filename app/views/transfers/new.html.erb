@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><strong>Efetuar transferência</strong></div>
+
+  <div class="panel-body">
+    <%= simple_form_for @transfer do |f| %>
+      <%= f.input :account_debited_id, as: :hidden, input_html: { value: current_bank_account.id } %>
+
+      <%= f.input :value %>
+      <%= f.input :account_number %>
+
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

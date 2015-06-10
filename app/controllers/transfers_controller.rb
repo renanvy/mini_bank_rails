@@ -1,16 +1,21 @@
 class TransfersController < ApplicationController
   before_action :authenticate_bank_account!
 
+  respond_to :html
+
   def new
+    @transfer = Transfer.new
   end
 
   def create
-    Transfer.new(current_bank_account, transfer_params).process
+    @transfer = Transfer.process(transfer_params)
+
+    respond_with(@transfer, location: new_transfer_url)
   end
 
   private
 
-  def deposit_params
-    params.require(:transfer_params).permit(:account_number, :value)
+  def transfer_params
+    params.require(:transfer).permit(:account_number, :value, :account_debited_id)
   end
 end
