@@ -3,12 +3,14 @@
 
   <div class="panel-body">
     <%= simple_form_for @transfer do |f| %>
+      <%= f.error_notification %>
+
       <%= f.input :account_debited_id, as: :hidden, input_html: { value: current_bank_account.id } %>
 
       <%= f.input :value %>
       <%= f.input :account_number %>
 
-      <%= f.button :submit %>
+      <%= f.button :submit, "Fazer transferência", class: "btn btn-success" %>
     <% end %>
   </div>
 </div>

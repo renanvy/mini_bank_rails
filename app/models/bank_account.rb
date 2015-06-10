@@ -3,4 +3,7 @@ class BankAccount < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  validates :name, :number, presence: true
+  validates :number, uniqueness: true, on: :create
 end

@@ -3,11 +3,12 @@
 
   <div class="panel-body">
     <%= simple_form_for @deposit do |f| %>
+      <%= f.error_notification %>
 
       <%= f.input :value %>
       <%= f.input :account_number %>
 
-      <%= f.button :submit %>
+      <%= f.button :submit, "Fazer depósito", class: "btn btn-success" %>
     <% end %>
   </div>
 </div>

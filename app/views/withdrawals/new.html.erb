@@ -3,11 +3,13 @@
 
   <div class="panel-body">
     <%= simple_form_for @withdrawal do |f| %>
+      <%= f.error_notification %>
+
       <%= f.input :current_bank_account_id, as: :hidden, input_html: { value: current_bank_account.id } %>
 
       <%= f.input :value %>
 
-      <%= f.button :submit %>
+      <%= f.button :submit, "Sacar", class: "btn btn-success" %>
     <% end %>
   </div>
 </div>
