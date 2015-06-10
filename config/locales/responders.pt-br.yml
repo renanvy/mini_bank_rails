@@ -1,0 +1,13 @@
+pt-BR:
+  flash:
+    deposits:
+      create:
+        notice: 'Depósito realizado com sucesso.'
+
+    transfers:
+      create:
+        notice: 'Transferência feita com sucesso.'
+
+    withdrawals:
+      create:
+        notice: 'Saque feito com sucesso.'

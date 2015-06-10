@@ -1,6 +1,4 @@
 class DepositsController < ApplicationController
-
-  respond_to :html
   
   def new
     @deposit = Deposit.new

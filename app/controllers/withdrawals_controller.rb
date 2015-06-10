@@ -1,8 +1,6 @@
 class WithdrawalsController < ApplicationController
   before_action :authenticate_bank_account!
 
-  respond_to :html
-
   def new
     @withdrawal = Withdrawal.new
   end

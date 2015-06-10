@@ -20,6 +20,7 @@ gem 'pundit', '~> 1.0.0'
 
 # Others
 gem "start"
+gem "responders"
 
 group :development do
   gem 'quiet_assets', '~> 1.1.0'

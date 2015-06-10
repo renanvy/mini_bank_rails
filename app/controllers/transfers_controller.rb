@@ -1,8 +1,6 @@
 class TransfersController < ApplicationController
   before_action :authenticate_bank_account!
 
-  respond_to :html
-
   def new
     @transfer = Transfer.new
   end
