@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :withdrawals,              only: [:new, :create]
   resources :deactivate_bank_accounts, only: [:update]
   resources :dashboard,                only: [:index]
+  resources :balances,                  only: [:index]
 
   devise_scope :bank_account do
     root 'devise/sessions#new'

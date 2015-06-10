@@ -17,9 +17,8 @@
         <%= link_to "Extrato", "#" %>
       </li>
 
-      <li role="presentation">
-        <%= link_to "Exibir saldo", "#", data: { toggle: "modal", target: "#balanceModal" } %>
-        
+      <li role="presentation" class="<%= current_page(balances_path) %>">
+        <%= link_to "Exibir saldo", balances_path %>
       </li>
 
       <li role="presentation">
@@ -28,7 +27,3 @@
     <% end %>
   </ul>
 </div>
-
-<% if bank_account_signed_in? %>
-  <%= render "shared/balance_modal" %>
-<% end %>

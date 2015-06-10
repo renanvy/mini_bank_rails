@@ -1,0 +1,8 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><strong>Meu saldo</strong></div>
+
+  <div class="panel-body">
+    <p><strong>Data: </strong><%= l(Date.current, format: :default) %></p>
+    <h3>Saldo: <%= number_to_currency(current_bank_account.balance) %></h3>
+  </div>
+</div>
