@@ -1,6 +1,12 @@
 class Transfer
-  
   include ActiveModel::Model
+
+  TAXES = {
+    business_hour: 5,
+    off_business_hour: 7,
+    weekend: 7,
+    big_quantity: 100
+  }
 
   attr_accessor :account_number, :value, :account_debited_id
 
@@ -21,9 +27,26 @@ class Transfer
     account_debited.update(balance: account_debited.balance - value.to_d)
 
     save_movimentation
+    apply_taxes(account_debited)
   end
 
   private
+
+  def apply_taxes(account_debited)
+    tax = if Date.current.sunday? || Date.current.saturday?
+      TAXES[:weekend]
+    else
+      if Time.current.beginning_of_hour.hour >= 9 and Time.current.end_of_hour.hour <= 18
+        TAXES[:business_hour]
+      else
+        TAXES[:off_business_hour]
+      end
+    end
+
+    final_tax = (value.to_d >= 1000) ? (tax + 10) : tax
+
+    account_debited.update(balance: account_debited.balance - final_tax)
+  end
 
   def account_credited
     BankAccount.find_by(number: account_number)
@@ -49,7 +72,7 @@ class Transfer
   def verify_account_number
     if BankAccount.find_by(number: account_number).nil?
       errors.add(:account_number, "Conta não encontrada")
-    elsif account_number.to_i == account_debited.number
+    elsif account_number == account_debited.number
       errors.add(:account_number, "Você não pode efetuar transferências para sua conta")
     end
   end
