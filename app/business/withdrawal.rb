@@ -15,7 +15,7 @@ class Withdrawal
 
     current_bank_account.update(balance: current_bank_account.balance - value.to_d)
 
-    # save_transaction
+    save_movimentation
   end
 
   private
@@ -24,12 +24,17 @@ class Withdrawal
     BankAccount.find(current_bank_account_id)
   end
 
-  def transaction
-    # @transaction ||= Transaction.new(...........)
+  def movimentation
+    @movimentation ||= Movimentation.new(
+                                          operation: "Saque", 
+                                          bank_account_id: current_bank_account.id, 
+                                          account_destiny_id: "",
+                                          value: value
+                                        )
   end
 
-  def save_transaction
-    # transaction.save!
+  def save_movimentation
+    movimentation.save!
   end
 
   def bank_account_balance

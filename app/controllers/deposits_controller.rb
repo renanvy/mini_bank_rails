@@ -1,4 +1,5 @@
 class DepositsController < ApplicationController
+  before_action :authenticate_bank_account!
   
   def new
     @deposit = Deposit.new
@@ -13,6 +14,6 @@ class DepositsController < ApplicationController
   private
 
   def deposit_params
-    params.require(:deposit).permit(:account_number, :value)
+    params.require(:deposit).permit(:account_number, :value, :current_bank_account_id)
   end
 end

@@ -1,10 +1,11 @@
 <div class="col-sm-3 col-md-2 sidebar">
   <ul class="nav nav-sidebar">
-    <li role="presentation" class="<%= current_page(new_deposit_path) %>">
-      <%= link_to "Efetuar depósito", new_deposit_path %>
-    </li>
 
     <% if bank_account_signed_in? %>
+      <li role="presentation" class="<%= current_page(new_deposit_path) %>">
+        <%= link_to "Efetuar depósito", new_deposit_path %>
+      </li>
+
       <li role="presentation" class="<%= current_page(new_withdrawal_path) %>">
         <%= link_to "Efetuar saque", new_withdrawal_path %>
       </li>

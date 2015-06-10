@@ -10,6 +10,15 @@
       <%= f.input :value %>
       <%= f.input :account_number %>
 
+      <div class="alert alert-warning" role="alert">
+        <strong>Informações sobre a transferência</strong><br><br>
+        <ul>
+          <li>De segunda a sexta das 9 às 18 horas a taxa é 5 reais por transferência</li>
+          <li>Fora desse horário a taxa é 7 reais</li>
+          <li>Acima de 1000 reais há um adicional de 10 reais na taxa</li>
+        </ul>
+      </div>
+
       <%= f.button :submit, "Fazer transferência", class: "btn btn-success" %>
     <% end %>
   </div>

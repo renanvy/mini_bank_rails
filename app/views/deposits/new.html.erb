@@ -5,6 +5,8 @@
     <%= simple_form_for @deposit do |f| %>
       <%= f.error_notification %>
 
+      <%= f.input :current_bank_account_id, as: :hidden, input_html: { value: current_bank_account.id } %>
+
       <%= f.input :value %>
       <%= f.input :account_number %>
 

@@ -3,24 +3,24 @@
 
   <div class="panel-body">
 
-    <table class="table">
+    <table class="table table-bordered table-striped">
       <thead>
         <tr>
           <th>Operação</th>
           <th>Data</th>
-          <th>Conta creditada</th>
-          <th>Conta debitada</th>
+          <th>Conta origem</th>
+          <th>Conta destino</th>
           <th>Valor</th>
         </tr>
       </thead>
 
       <tbody>
         <% @movimentations.each do |movimentation| %>
-          <tr>
+          <tr class="<%= status(movimentation) %>">
             <td><%= movimentation.operation %></td>
             <td><%= l(movimentation.created_at, format: :short) %></td>
-            <td><%= BankAccount.find(movimentation.account_destiny_id).number %></td>
             <td><%= movimentation.bank_account.number %></td>
+            <td><%= BankAccount.find(movimentation.account_destiny_id).number if movimentation.account_destiny_id.present? %></td>
             <td><%= number_to_currency(movimentation.value) %></td>
           </tr>
         <% end %>
