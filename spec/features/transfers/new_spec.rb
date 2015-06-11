@@ -22,4 +22,15 @@ feature "New transfers" do
     expect(page).to have_content("Transferência feita com sucesso.")
   end
 
+  scenario "New transfer with invalid fields" do
+    within "#new_transfer" do
+      fill_in "transfer[value]",          with: "0.0"
+      fill_in "transfer[account_number]", with: bank_account_two.number
+    end
+
+    click_button "Fazer transferência"
+
+    expect(page).to have_content("Por favor, corrija os problemas abaixo:")
+  end
+
 end
