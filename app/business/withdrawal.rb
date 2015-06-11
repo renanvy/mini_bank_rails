@@ -13,7 +13,7 @@ class Withdrawal
   def process
     return unless valid?
 
-    current_bank_account.update(balance: current_bank_account.balance - value.to_d)
+    current_bank_account.update(balance: current_bank_account.balance - value.to_f)
 
     save_movimentation
   end
@@ -29,7 +29,7 @@ class Withdrawal
                                           operation: "Saque", 
                                           bank_account_id: current_bank_account.id, 
                                           account_destiny_id: "",
-                                          value: value
+                                          value: value.to_f
                                         )
   end
 
@@ -38,7 +38,7 @@ class Withdrawal
   end
 
   def bank_account_balance
-    errors.add(:value, "Saldo insuficiente") if value.to_d > current_bank_account.balance
+    errors.add(:value, "Saldo insuficiente") if value.to_f > current_bank_account.balance
   end
 
 end

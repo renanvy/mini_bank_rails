@@ -24,8 +24,8 @@ class Transfer
   def process
     return unless valid?
 
-    account_credited.update(balance: account_credited.balance + value.to_d)
-    account_debited.update(balance: account_debited.balance - value.to_d)
+    account_credited.update(balance: account_credited.balance + value.to_f)
+    account_debited.update(balance: account_debited.balance - value.to_f)
 
     save_movimentation
     apply_taxes(account_debited)
@@ -62,7 +62,7 @@ class Transfer
                                           operation: "Transferência", 
                                           bank_account_id: account_debited.id, 
                                           account_destiny_id: account_credited.id,
-                                          value: value
+                                          value: value.to_f
                                         )
   end
 
@@ -75,7 +75,7 @@ class Transfer
   end
 
   def bank_account_balance
-    errors.add(:value, "Saldo insuficiente") if value.to_d > account_debited.balance
+    errors.add(:value, "Saldo insuficiente") if value.to_f > account_debited.balance
   end
 
 end

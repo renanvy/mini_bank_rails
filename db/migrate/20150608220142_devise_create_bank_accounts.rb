@@ -32,7 +32,6 @@ class DeviseCreateBankAccounts < ActiveRecord::Migration
 
       t.string :name, null: false, default: ""
       t.integer :number, null: false
-      t.decimal :balance, null: false, default: 0.0
 
       t.timestamps
     end

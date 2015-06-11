@@ -17,7 +17,7 @@ class Deposit
   def process
     return unless valid?
 
-    account_credited.update(balance: account_credited.balance + value.to_d)
+    account_credited.update(balance: account_credited.balance + value.to_f)
 
     save_movimentation
   end
@@ -37,7 +37,7 @@ class Deposit
                                           operation: "Depósito", 
                                           bank_account_id: current_bank_account.id, 
                                           account_destiny_id: account_credited.id,
-                                          value: value
+                                          value: value.to_f
                                         )
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610220228) do
+ActiveRecord::Schema.define(version: 20150611225535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(version: 20150610220228) do
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.string   "name",                   default: "",   null: false
-    t.decimal  "balance",                default: 0.0,  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "active",                 default: true
     t.string   "number"
+    t.float    "balance",                default: 0.0
   end
 
   add_index "bank_accounts", ["email"], name: "index_bank_accounts_on_email", unique: true, using: :btree
@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(version: 20150610220228) do
     t.string   "operation"
     t.integer  "bank_account_id"
     t.integer  "account_destiny_id"
-    t.decimal  "value",              precision: 8, scale: 2
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.float    "value"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_index "movimentations", ["bank_account_id"], name: "index_movimentations_on_bank_account_id", using: :btree

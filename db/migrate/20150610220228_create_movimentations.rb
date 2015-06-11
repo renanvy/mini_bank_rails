@@ -4,7 +4,7 @@ class CreateMovimentations < ActiveRecord::Migration
       t.string :operation
       t.references :bank_account, index: true, foreign_key: true
       t.integer :account_destiny_id
-      t.decimal :value, precision: 8, scale: 2
+      t.float :value
 
       t.timestamps null: false
     end
