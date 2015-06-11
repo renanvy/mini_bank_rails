@@ -15,6 +15,7 @@ class Transfer
   validates :value,                  numericality: { greater_than: 0.0 }
   validates :account_number,         account_number: true
   validate  :verify_account_destiny
+  validate  :bank_account_balance
 
   def self.process(transfer_params)
     new(transfer_params).tap(&:process)
@@ -70,9 +71,7 @@ class Transfer
   end
 
   def verify_account_destiny
-    if account_number == account_debited.number
-      errors.add(:account_number, "Você não pode efetuar transferências para sua conta")
-    end
+    errors.add(:account_number, "Você não pode efetuar transferências para sua conta") if account_number == account_debited.number
   end
 
   def bank_account_balance
