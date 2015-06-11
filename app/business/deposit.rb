@@ -8,7 +8,7 @@ class Deposit
   validates :account_number, :value, presence: true
   validates :account_number,         numericality: { only_integer: true }
   validates :value,                  numericality: { greater_than: 0.0 }
-  validates :account_number,         account_number: true
+  validates :account_number,         account_number: { operation: :deposit }
 
   def self.process(deposit_params)
     new(deposit_params).tap(&:process)

@@ -11,10 +11,10 @@ class Transfer
   attr_accessor :account_number, :value, :account_debited_id
 
   validates :account_number, :value, presence: true
-  validates :account_number, numericality: { only_integer: true }
-  validates :value, numericality: { greater_than: 0.0 }
-  validate  :verify_account_number
-  validate  :bank_account_balance
+  validates :account_number,         numericality: { only_integer: true }
+  validates :value,                  numericality: { greater_than: 0.0 }
+  validates :account_number,         account_number: true
+  validate  :verify_account_destiny
 
   def self.process(transfer_params)
     new(transfer_params).tap(&:process)
@@ -69,10 +69,8 @@ class Transfer
     movimentation.save!
   end
 
-  def verify_account_number
-    if BankAccount.find_by(number: account_number).nil?
-      errors.add(:account_number, "Conta não encontrada")
-    elsif account_number == account_debited.number
+  def verify_account_destiny
+    if account_number == account_debited.number
       errors.add(:account_number, "Você não pode efetuar transferências para sua conta")
     end
   end
