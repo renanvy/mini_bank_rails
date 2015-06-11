@@ -6,6 +6,8 @@ FactoryGirl.define do
     email "renanvy@gmail.com"
     password 12345678
     password_confirmation 12345678
+    balance 100.0
+    active true
   end
 
 end
