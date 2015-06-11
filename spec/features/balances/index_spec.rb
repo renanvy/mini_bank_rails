@@ -1,8 +1,8 @@
 require "rails_helper"
 
-feature "Balance" do
+feature "Balance", type: :feature do
 
-  let(:bank_account)     { create(:bank_account, balance: 100.0) }
+  let(:bank_account) { create(:bank_account, balance: 100.0) }
   
   before(:each) do
     login_as(bank_account, scope: :bank_account)

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Movimentations" do
+feature "Movimentations", type: :feature do
 
   let(:bank_account)     { create(:bank_account) }
   let(:bank_account_two) { create(:bank_account_two) }

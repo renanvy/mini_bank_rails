@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "New withdrawal" do
+feature "New withdrawal", type: :feature do
 
   let(:bank_account) { create(:bank_account) }
   

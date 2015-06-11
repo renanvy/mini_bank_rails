@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "New transfers" do
+feature "New transfers", type: :feature do
 
   let(:bank_account)     { create(:bank_account) }
   let(:bank_account_two) { create(:bank_account_two) }

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "NewDeposit" do
+feature "NewDeposit", type: :feature do
 
   let(:bank_account) { create(:bank_account) }
   
