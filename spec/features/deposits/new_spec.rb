@@ -14,7 +14,7 @@ feature "NewDeposit" do
     
     within "#new_deposit" do
       fill_in "deposit[value]", with: "10.0"
-      fill_in "deposit[account_number]", with: "1234"
+      fill_in "deposit[account_number]", with: "00001"
     end
 
     click_button "Fazer depósito"
@@ -26,7 +26,7 @@ feature "NewDeposit" do
     
     within "#new_deposit" do
       fill_in "deposit[value]", with: "-1"
-      fill_in "deposit[account_number]", with: "1234"
+      fill_in "deposit[account_number]", with: "00001"
     end
 
     click_button "Fazer depósito"

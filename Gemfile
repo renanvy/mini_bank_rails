@@ -14,9 +14,8 @@ gem 'jquery-rails'
 gem 'simple_form', '~> 3.1.0'
 gem 'bootstrap-sass', '~> 3.3.4'
 
-# Authentication and Authorization
+# Authentication
 gem 'devise'
-gem 'pundit', '~> 1.0.0'
 
 # Others
 gem "start"
@@ -39,7 +38,6 @@ end
 group :test do
   gem 'database_cleaner', '~> 1.4.1'
   gem 'shoulda-matchers', '~> 2.8.0', require: false
-  gem "poltergeist"
 end
 
 group :production do
