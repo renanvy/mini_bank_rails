@@ -8,7 +8,7 @@ class WithdrawalsController < ApplicationController
   def create
     @withdrawal = Withdrawal.process(withdrawal_params)
 
-    respond_with(@withdrawal, location: -> { new_withdrawal_url })
+    respond_with(@withdrawal, location: -> { dashboard_index_url })
   end
 
   private

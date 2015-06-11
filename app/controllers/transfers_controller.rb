@@ -8,7 +8,7 @@ class TransfersController < ApplicationController
   def create
     @transfer = Transfer.process(transfer_params)
 
-    respond_with(@transfer, location: new_transfer_url)
+    respond_with(@transfer, location: dashboard_index_url)
   end
 
   private

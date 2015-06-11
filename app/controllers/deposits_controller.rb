@@ -8,7 +8,7 @@ class DepositsController < ApplicationController
   def create
     @deposit = Deposit.process(deposit_params)
 
-    respond_with(@deposit, location: new_deposit_url)
+    respond_with(@deposit, location: dashboard_index_url)
   end
 
   private
