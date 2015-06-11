@@ -21,4 +21,15 @@ feature "New withdrawal" do
     expect(page).to have_content("Saque feito com sucesso.")
   end
 
+  scenario "New withdrawal with invalid fields" do
+
+    within "#new_withdrawal" do
+      fill_in "withdrawal[value]", with: "0.0"
+    end
+
+    click_button "Sacar"
+
+    expect(page).to have_content("Por favor, corrija os problemas abaixo:")
+  end
+
 end
