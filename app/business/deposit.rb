@@ -1,13 +1,14 @@
 class Deposit
   
   include ActiveModel::Model
+  include ActiveModel::Validations
 
   attr_accessor :account_number, :value, :current_bank_account_id
 
   validates :account_number, :value, presence: true
   validates :account_number,         numericality: { only_integer: true }
   validates :value,                  numericality: { greater_than: 0.0 }
-  validate  :verify_account_number
+  validates :account_number,         account_number: true
 
   def self.process(deposit_params)
     new(deposit_params).tap(&:process)
@@ -42,10 +43,6 @@ class Deposit
 
   def save_movimentation
     movimentation.save!
-  end
-
-  def verify_account_number
-    errors.add(:account_number, "Conta não encontrada") if BankAccount.find_by(number: account_number).nil?
   end
 
 end
