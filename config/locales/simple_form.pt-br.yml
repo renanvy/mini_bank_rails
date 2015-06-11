@@ -19,6 +19,8 @@ pt-BR:
         account_number: Número da conta
         password_confirmation: Confirme a senha
         current_password: Senha atual
+      extract:
+        start_date: Data inicial
     # hints:
     #   defaults:
     #     password: 'Mínimo de 8 caracteres.'

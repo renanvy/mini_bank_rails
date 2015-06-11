@@ -212,6 +212,9 @@ pt-BR:
     attributes:
       user:
         name: Nome
+      extract:
+        start_date: Data inicial
+        end_date: Data final
 
     errors:
       <<: *errors
