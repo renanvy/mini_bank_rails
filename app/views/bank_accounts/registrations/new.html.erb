@@ -1,13 +1,33 @@
-<h2>Criar nova conta</h2>
+<div class="panel panel-default">
+  <div class="panel-heading"><strong>Criar nova conta</strong></div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <p><%= f.error_notification %></p>
+  <div class="panel-body">
 
-  <p><%= f.input :name %></p>
-  <p><%= f.input :email %></p>
-  <p><%= f.input :password %></p>
-  <p><%= f.input :password_confirmation %></p>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <p><%= f.error_notification %></p>
 
-  <p><%= f.button :submit, "Cadastrar" %></p>
+      <div class="row">
+        <div class="col-md-3"> 
+          <%= f.input :name %>
+        </div>
 
-<% end %>
+        <div class="col-md-3">
+          <%= f.input :email %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <%= f.input :password %>
+        </div>
+
+        <div class="col-md-3">
+          <%= f.input :password_confirmation %>
+        </div>
+      </div>
+
+      <p><%= f.button :submit, "Cadastrar", class: "btn btn-success" %></p>
+
+    <% end %>
+  </div>
+</div>

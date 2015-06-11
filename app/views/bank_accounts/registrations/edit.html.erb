@@ -7,11 +7,19 @@
 
       <p><%= f.input :name %></p>
       <p><%= f.input :email %></p>
+
+      <div class="alert alert-warning" role="alert">
+        <p>Deixe em branco se não quiser alterar sua senha</p>
+      </div>
+
       <p><%= f.input :password %></p>
       <p><%= f.input :password_confirmation %></p>
+
+      <hr>
+
       <p><%= f.input :current_password %></p>
 
-      <p><%= f.button :submit, "Atualizar" %></p>
+      <p><%= f.button :submit, class: "btn btn-success" %></p>
     <% end %>
   </div>
 </div>

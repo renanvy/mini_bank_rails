@@ -218,9 +218,16 @@ pt-BR:
 
   helpers:
     submit:
-      user:
-        create: 'Novo %{model}'
-        update: 'Salvar'
+      bank_account:
+        create: 'Cadastrar'
+        update: 'Atualizar'
+      deposit:
+        create: 'Fazer depósito'
+      withdrawal:
+        create: 'Sacar'
+      transfer:
+        create: 'Fazer transferência'
+
 
   views:
     pagination:

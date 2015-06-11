@@ -15,6 +15,10 @@ pt-BR:
       defaults:
         password: Senha
         name: Nome
+        value: Valor
+        account_number: Número da conta
+        password_confirmation: Confirme a senha
+        current_password: Senha atual
     # hints:
     #   defaults:
     #     password: 'Mínimo de 8 caracteres.'

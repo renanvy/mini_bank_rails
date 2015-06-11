@@ -7,9 +7,13 @@
 
       <%= f.input :current_bank_account_id, as: :hidden, input_html: { value: current_bank_account.id } %>
 
-      <%= f.input :value %>
-
-      <%= f.button :submit, "Sacar", class: "btn btn-success" %>
+      <div class="row">
+        <div class="col-md-2">
+          <%= f.input :value, placeholder: "R$" %>
+        </div>
+      </div>
+      
+      <br><%= f.button :submit, class: "btn btn-success" %>
     <% end %>
   </div>
 </div>
