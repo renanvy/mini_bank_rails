@@ -31,8 +31,6 @@ class Transfer
     apply_taxes(account_debited)
   end
 
-  private
-
   def apply_taxes(account_debited)
     tax = if Date.current.sunday? || Date.current.saturday?
       TAXES[:weekend]
@@ -48,6 +46,8 @@ class Transfer
 
     account_debited.update(balance: account_debited.balance - final_tax)
   end
+
+  private
 
   def account_credited
     BankAccount.find_by(number: account_number)
