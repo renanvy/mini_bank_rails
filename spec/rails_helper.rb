@@ -18,3 +18,16 @@ RSpec.configure do |config|
 
   config.infer_spec_type_from_file_location!
 end
+
+def tax_by_date(date_time, quantity)
+  tax = if date_time.to_date.sunday? || date_time.to_date.saturday?
+    7
+  else
+    if date_time.beginning_of_hour.hour.in?(9..18)
+      5
+    else
+      7
+    end
+  end
+  return (quantity > 100) ? (tax + 10) : tax
+end
