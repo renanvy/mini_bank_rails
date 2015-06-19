@@ -1,28 +1,18 @@
-== README
+== Mini banco
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Pequeno exemplo de um mini banco implementado com Rails.
 
-Things you may want to cover:
+Para rodar o projeto:
 
-* Ruby version
+* <tt>bundle install</tt>
 
-* System dependencies
+* <tt>rake db:create</tt>
 
-* Configuration
+* <tt>rake db:migrate</tt>
 
-* Database creation
+* <tt>rails server</tt>
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Para rodar os testes:
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* <tt>rspec spec/</tt>

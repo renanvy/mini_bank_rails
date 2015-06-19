@@ -5,8 +5,8 @@ default: &default
 
 development:
   <<: *default
-  database: teste-integra-grp_development
+  database: mini_bank_development
 
 test:
   <<: *default
-  database: teste-integra-grp_test
+  database: mini_bank_test
