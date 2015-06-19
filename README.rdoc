@@ -1,6 +1,8 @@
-== Mini banco
+== Mini bank
 
 Pequeno exemplo de um mini banco implementado com Rails.
+
+Demo: <tt>https://mini-bank-rails.herokuapp.com/</tt>
 
 Para rodar o projeto:
 
